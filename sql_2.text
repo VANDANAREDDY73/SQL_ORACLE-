@@ -1,0 +1,294 @@
+SQL> show user
+USER is "SCOTT"
+SQL> set pages 200 lines 200
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select ename job
+  2  from emp;
+
+JOB                                                                                                                                                                                                     
+----------                                                                                                                                                                                              
+SMITH                                                                                                                                                                                                   
+ALLEN                                                                                                                                                                                                   
+WARD                                                                                                                                                                                                    
+JONES                                                                                                                                                                                                   
+MARTIN                                                                                                                                                                                                  
+BLAKE                                                                                                                                                                                                   
+CLARK                                                                                                                                                                                                   
+SCOTT                                                                                                                                                                                                   
+KING                                                                                                                                                                                                    
+TURNER                                                                                                                                                                                                  
+ADAMS                                                                                                                                                                                                   
+JAMES                                                                                                                                                                                                   
+FORD                                                                                                                                                                                                    
+MILLER                                                                                                                                                                                                  
+
+14 rows selected.
+
+SQL> select ename,job
+  2  from emp;
+
+ENAME      JOB                                                                                                                                                                                          
+---------- ---------                                                                                                                                                                                    
+SMITH      CLERK                                                                                                                                                                                        
+ALLEN      SALESMAN                                                                                                                                                                                     
+WARD       SALESMAN                                                                                                                                                                                     
+JONES      MANAGER                                                                                                                                                                                      
+MARTIN     SALESMAN                                                                                                                                                                                     
+BLAKE      MANAGER                                                                                                                                                                                      
+CLARK      MANAGER                                                                                                                                                                                      
+SCOTT      ANALYST                                                                                                                                                                                      
+KING       PRESIDENT                                                                                                                                                                                    
+TURNER     SALESMAN                                                                                                                                                                                     
+ADAMS      CLERK                                                                                                                                                                                        
+JAMES      CLERK                                                                                                                                                                                        
+FORD       ANALYST                                                                                                                                                                                      
+MILLER     CLERK                                                                                                                                                                                        
+
+14 rows selected.
+
+SQL> select job "Designation"
+  2  from emp;
+
+Designati                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+CLERK                                                                                                                                                                                                   
+SALESMAN                                                                                                                                                                                                
+SALESMAN                                                                                                                                                                                                
+MANAGER                                                                                                                                                                                                 
+SALESMAN                                                                                                                                                                                                
+MANAGER                                                                                                                                                                                                 
+MANAGER                                                                                                                                                                                                 
+ANALYST                                                                                                                                                                                                 
+PRESIDENT                                                                                                                                                                                               
+SALESMAN                                                                                                                                                                                                
+CLERK                                                                                                                                                                                                   
+CLERK                                                                                                                                                                                                   
+ANALYST                                                                                                                                                                                                 
+CLERK                                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> select distint job
+  2  from emp;
+select distint job
+       *
+ERROR at line 1:
+ORA-00904: "DISTINT": invalid identifier 
+
+
+SQL> select distinct job
+  2  from emp;
+
+JOB                                                                                                                                                                                                     
+---------                                                                                                                                                                                               
+CLERK                                                                                                                                                                                                   
+SALESMAN                                                                                                                                                                                                
+PRESIDENT                                                                                                                                                                                               
+MANAGER                                                                                                                                                                                                 
+ANALYST                                                                                                                                                                                                 
+
+SQL> select distinct sal
+  2  from emp;
+
+       SAL                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      2450                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      2850                                                                                                                                                                                              
+      2975                                                                                                                                                                                              
+      1100                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+      1500                                                                                                                                                                                              
+       950                                                                                                                                                                                              
+
+12 rows selected.
+
+SQL> select distinct loc
+  2  from dept;
+
+LOC                                                                                                                                                                                                     
+-------------                                                                                                                                                                                           
+NEW YORK                                                                                                                                                                                                
+CHICAGO                                                                                                                                                                                                 
+BOSTON                                                                                                                                                                                                  
+DALLAS                                                                                                                                                                                                  
+
+SQL> select ename,sal,sal+100
+  2  from emp;
+
+ENAME             SAL    SAL+100                                                                                                                                                                        
+---------- ---------- ----------                                                                                                                                                                        
+SMITH             800        900                                                                                                                                                                        
+ALLEN            1600       1700                                                                                                                                                                        
+WARD             1250       1350                                                                                                                                                                        
+JONES            2975       3075                                                                                                                                                                        
+MARTIN           1250       1350                                                                                                                                                                        
+BLAKE            2850       2950                                                                                                                                                                        
+CLARK            2450       2550                                                                                                                                                                        
+SCOTT            3000       3100                                                                                                                                                                        
+KING             5000       5100                                                                                                                                                                        
+TURNER           1500       1600                                                                                                                                                                        
+ADAMS            1100       1200                                                                                                                                                                        
+JAMES             950       1050                                                                                                                                                                        
+FORD             3000       3100                                                                                                                                                                        
+MILLER           1300       1400                                                                                                                                                                        
+
+14 rows selected.
+
+SQL> select ename,sal/100
+  2  from emp;
+
+ENAME         SAL/100                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SMITH               8                                                                                                                                                                                   
+ALLEN              16                                                                                                                                                                                   
+WARD             12.5                                                                                                                                                                                   
+JONES           29.75                                                                                                                                                                                   
+MARTIN           12.5                                                                                                                                                                                   
+BLAKE            28.5                                                                                                                                                                                   
+CLARK            24.5                                                                                                                                                                                   
+SCOTT              30                                                                                                                                                                                   
+KING               50                                                                                                                                                                                   
+TURNER             15                                                                                                                                                                                   
+ADAMS              11                                                                                                                                                                                   
+JAMES             9.5                                                                                                                                                                                   
+FORD               30                                                                                                                                                                                   
+MILLER             13                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> select ename||job
+  2  from emp;
+
+ENAME||JOB                                                                                                                                                                                              
+-------------------                                                                                                                                                                                     
+SMITHCLERK                                                                                                                                                                                              
+ALLENSALESMAN                                                                                                                                                                                           
+WARDSALESMAN                                                                                                                                                                                            
+JONESMANAGER                                                                                                                                                                                            
+MARTINSALESMAN                                                                                                                                                                                          
+BLAKEMANAGER                                                                                                                                                                                            
+CLARKMANAGER                                                                                                                                                                                            
+SCOTTANALYST                                                                                                                                                                                            
+KINGPRESIDENT                                                                                                                                                                                           
+TURNERSALESMAN                                                                                                                                                                                          
+ADAMSCLERK                                                                                                                                                                                              
+JAMESCLERK                                                                                                                                                                                              
+FORDANALYST                                                                                                                                                                                             
+MILLERCLERK                                                                                                                                                                                             
+
+14 rows selected.
+
+SQL> select ename||' working as a '||job
+  2  from emp;
+
+ENAME||'WORKINGASA'||JOB                                                                                                                                                                                
+---------------------------------                                                                                                                                                                       
+SMITH working as a CLERK                                                                                                                                                                                
+ALLEN working as a SALESMAN                                                                                                                                                                             
+WARD working as a SALESMAN                                                                                                                                                                              
+JONES working as a MANAGER                                                                                                                                                                              
+MARTIN working as a SALESMAN                                                                                                                                                                            
+BLAKE working as a MANAGER                                                                                                                                                                              
+CLARK working as a MANAGER                                                                                                                                                                              
+SCOTT working as a ANALYST                                                                                                                                                                              
+KING working as a PRESIDENT                                                                                                                                                                             
+TURNER working as a SALESMAN                                                                                                                                                                            
+ADAMS working as a CLERK                                                                                                                                                                                
+JAMES working as a CLERK                                                                                                                                                                                
+FORD working as a ANALYST                                                                                                                                                                               
+MILLER working as a CLERK                                                                                                                                                                               
+
+14 rows selected.
+
+SQL> select ename||' getting a salary of '||sal
+  2  from emp;
+
+ENAME||'GETTINGASALARYOF'||SAL                                                                                                                                                                          
+-----------------------------------------------------------------------                                                                                                                                 
+SMITH getting a salary of 800                                                                                                                                                                           
+ALLEN getting a salary of 1600                                                                                                                                                                          
+WARD getting a salary of 1250                                                                                                                                                                           
+JONES getting a salary of 2975                                                                                                                                                                          
+MARTIN getting a salary of 1250                                                                                                                                                                         
+BLAKE getting a salary of 2850                                                                                                                                                                          
+CLARK getting a salary of 2450                                                                                                                                                                          
+SCOTT getting a salary of 3000                                                                                                                                                                          
+KING getting a salary of 5000                                                                                                                                                                           
+TURNER getting a salary of 1500                                                                                                                                                                         
+ADAMS getting a salary of 1100                                                                                                                                                                          
+JAMES getting a salary of 950                                                                                                                                                                           
+FORD getting a salary of 3000                                                                                                                                                                           
+MILLER getting a salary of 1300                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select 'hi good morning '||ename
+  2  from emp;
+
+'HIGOODMORNING'||ENAME                                                                                                                                                                                  
+--------------------------                                                                                                                                                                              
+hi good morning SMITH                                                                                                                                                                                   
+hi good morning ALLEN                                                                                                                                                                                   
+hi good morning WARD                                                                                                                                                                                    
+hi good morning JONES                                                                                                                                                                                   
+hi good morning MARTIN                                                                                                                                                                                  
+hi good morning BLAKE                                                                                                                                                                                   
+hi good morning CLARK                                                                                                                                                                                   
+hi good morning SCOTT                                                                                                                                                                                   
+hi good morning KING                                                                                                                                                                                    
+hi good morning TURNER                                                                                                                                                                                  
+hi good morning ADAMS                                                                                                                                                                                   
+hi good morning JAMES                                                                                                                                                                                   
+hi good morning FORD                                                                                                                                                                                    
+hi good morning MILLER                                                                                                                                                                                  
+
+14 rows selected.
+
+SQL> select ename||' working in a department no '||deptno||' and his employee id is '||empno
+  2  from emp;
+
+ENAME||'WORKINGINADEPARTMENTNO'||DEPTNO||'ANDHISEMPLOYEEIDIS'||EMPNO                                                                                                                                    
+----------------------------------------------------------------------------------------------------------------------------------------------                                                          
+SMITH working in a department no 20 and his employee id is 7369                                                                                                                                         
+ALLEN working in a department no 30 and his employee id is 7499                                                                                                                                         
+WARD working in a department no 30 and his employee id is 7521                                                                                                                                          
+JONES working in a department no 20 and his employee id is 7566                                                                                                                                         
+MARTIN working in a department no 30 and his employee id is 7654                                                                                                                                        
+BLAKE working in a department no 30 and his employee id is 7698                                                                                                                                         
+CLARK working in a department no 10 and his employee id is 7782                                                                                                                                         
+SCOTT working in a department no 20 and his employee id is 7788                                                                                                                                         
+KING working in a department no 10 and his employee id is 7839                                                                                                                                          
+TURNER working in a department no 30 and his employee id is 7844                                                                                                                                        
+ADAMS working in a department no 20 and his employee id is 7876                                                                                                                                         
+JAMES working in a department no 30 and his employee id is 7900                                                                                                                                         
+FORD working in a department no 20 and his employee id is 7902                                                                                                                                          
+MILLER working in a department no 10 and his employee id is 7934                                                                                                                                        
+
+14 rows selected.
+
+SQL> spool off
