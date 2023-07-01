@@ -1,0 +1,395 @@
+SQL> set pages 400 lines 400;
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                                                                                                                                                                                                                           
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                                                                                                                                                                                                                           
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                                                                                                                                                                                                                           
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                                                                                                                                                                                                                           
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                                                                                                                                                                                                                           
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                                                                                                                                                                                                                           
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                                                                                                                                                                                                                           
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                                                                                                                                                                                                                           
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                                                                                                                                                                                                                           
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                                                                                                                                                                                                                           
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                                                                                                                                                                                                                           
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                                                                                                                                                                                                                           
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                                                                                                                                                                                                                           
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                                                                                                                                                                                                                           
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                                                                                                                                                                                                                           
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                                                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> create table order1(
+  2  
+SQL> 
+SQL> CREATE TABLE ORDER1(
+  2  OID NUMBER(10),
+  3  ONAME VARCHAR(20),
+  4  PRICE NUMBER(6,2));
+
+Table created.
+
+SQL> SELECT * FROM ORDER1;
+
+no rows selected
+
+SQL> DESC ORDER1;
+ Name                                                                                                                                                                                                                                      Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- ------------------------------------------------------------------------------------------------------------------------------------------------------------
+ OID                                                                                                                                                                                                                                                NUMBER(10)
+ ONAME                                                                                                                                                                                                                                              VARCHAR2(20)
+ PRICE                                                                                                                                                                                                                                              NUMBER(6,2)
+
+SQL> INSERT INTO ORDER1
+  2  VALUES(1001,'DUM BIRYANI',300);
+
+1 row created.
+
+SQL> INSERT INTO ORDER1
+  2  VALUES(1002,'CHICKEN LOLLIPOP',120);
+
+1 row created.
+
+SQL> INSERT INTO ORDER1
+  2  VALUES(1003,'DOSA',50);
+
+1 row created.
+
+SQL> INSERT INTO ORDER1
+  2  VALUES(1004,'TEA',15);
+
+1 row created.
+
+SQL> SELECT * FROM ORDER1;
+
+       OID ONAME                     PRICE                                                                                                                                                                                                                                                                                                                                                                      
+---------- -------------------- ----------                                                                                                                                                                                                                                                                                                                                                                      
+      1001 DUM BIRYANI                 300                                                                                                                                                                                                                                                                                                                                                                      
+      1002 CHICKEN LOLLIPOP            120                                                                                                                                                                                                                                                                                                                                                                      
+      1003 DOSA                         50                                                                                                                                                                                                                                                                                                                                                                      
+      1004 TEA                          15                                                                                                                                                                                                                                                                                                                                                                      
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                                                                                                                                                                                                                               
+------------------------------ ------- ----------                                                                                                                                                                                                                                                                                                                                                               
+DEPT                           TABLE                                                                                                                                                                                                                                                                                                                                                                            
+EMP                            TABLE                                                                                                                                                                                                                                                                                                                                                                            
+BONUS                          TABLE                                                                                                                                                                                                                                                                                                                                                                            
+SALGRADE                       TABLE                                                                                                                                                                                                                                                                                                                                                                            
+ORDER1                         TABLE                                                                                                                                                                                                                                                                                                                                                                            
+
+SQL> CREATE TABLE PRODUCT(
+  2  PID NUMBER(10) PRIMARY KEY,
+  3  PNAME VARCHAR(10) NOT NULL,
+  4  PRICE NUMBER(10,2));
+
+Table created.
+
+SQL> DESC PRODUCT;
+ Name                                                                                                                                                                                                                                      Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- ------------------------------------------------------------------------------------------------------------------------------------------------------------
+ PID                                                                                                                                                                                                                                       NOT NULL NUMBER(10)
+ PNAME                                                                                                                                                                                                                                     NOT NULL VARCHAR2(10)
+ PRICE                                                                                                                                                                                                                                              NUMBER(10,2)
+
+SQL> INSERT INTO PRODUCT
+  2  VALUES(1,'BOOK',50);
+
+1 row created.
+
+SQL> INSERT INTO PRODUCT
+  2  VALUES(2,'PEN',30);
+
+1 row created.
+
+SQL> INSERT INTO PRODUCT
+  2  VALUES(3,'BOTTLE',70);
+
+1 row created.
+
+SQL> SELECT * FROM PRODUCT;
+
+       PID PNAME           PRICE                                                                                                                                                                                                                                                                                                                                                                                
+---------- ---------- ----------                                                                                                                                                                                                                                                                                                                                                                                
+         1 BOOK               50                                                                                                                                                                                                                                                                                                                                                                                
+         2 PEN                30                                                                                                                                                                                                                                                                                                                                                                                
+         3 BOTTLE             70                                                                                                                                                                                                                                                                                                                                                                                
+
+SQL> DESC EMP;
+ Name                                                                                                                                                                                                                                      Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- ------------------------------------------------------------------------------------------------------------------------------------------------------------
+ EMPNO                                                                                                                                                                                                                                     NOT NULL NUMBER(4)
+ ENAME                                                                                                                                                                                                                                              VARCHAR2(10)
+ JOB                                                                                                                                                                                                                                                VARCHAR2(9)
+ MGR                                                                                                                                                                                                                                                NUMBER(4)
+ HIREDATE                                                                                                                                                                                                                                           DATE
+ SAL                                                                                                                                                                                                                                                NUMBER(7,2)
+ COMM                                                                                                                                                                                                                                               NUMBER(7,2)
+ DEPTNO                                                                                                                                                                                                                                             NUMBER(2)
+
+SQL> INSERT INTO PRODUCT
+  2  VALUES(NULL,'PENCIL',5);
+VALUES(NULL,'PENCIL',5)
+       *
+ERROR at line 2:
+ORA-01400: cannot insert NULL into ("SCOTT"."PRODUCT"."PID") 
+
+
+SQL> INSERT INTO PRODUCT(PID)
+  2  VALUES(4);
+INSERT INTO PRODUCT(PID)
+*
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SCOTT"."PRODUCT"."PNAME") 
+
+
+SQL> INSERT INTO PRODUCT(PID,PNAME)
+  2  VALUES(4,PENCIL);
+VALUES(4,PENCIL)
+         *
+ERROR at line 2:
+ORA-00984: column not allowed here 
+
+
+SQL> INSERT INTO PRODUCT(PID,PNAME)
+  2  VALUES(4,'PENCIL');
+
+1 row created.
+
+SQL> SELECT * FROM PRODUCT;
+
+       PID PNAME           PRICE                                                                                                                                                                                                                                                                                                                                                                                
+---------- ---------- ----------                                                                                                                                                                                                                                                                                                                                                                                
+         1 BOOK               50                                                                                                                                                                                                                                                                                                                                                                                
+         2 PEN                30                                                                                                                                                                                                                                                                                                                                                                                
+         3 BOTTLE             70                                                                                                                                                                                                                                                                                                                                                                                
+         4 PENCIL                                                                                                                                                                                                                                                                                                                                                                                               
+
+SQL> CREATE TABLE COURSE(
+  2  CID NUMBER(10) PRIMARY KEY,
+  3  CNAME VARCHAR(10) NOT NULL,
+  4  TNAME VARCHAR(20) NOT NULL));
+TNAME VARCHAR(20) NOT NULL))
+                           *
+ERROR at line 4:
+ORA-00922: missing or invalid option 
+
+
+SQL>  CREATE TABLE COURSE(
+  2   CID NUMBER(10) PRIMARY KEY,
+  3   CNAME VARCHAR(10) NOT NULL,
+  4   TNAME VARCHAR(20) NOT NULL);
+
+Table created.
+
+SQL> DESC COURSE;
+ Name                                                                                                                                                                                                                                      Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- ------------------------------------------------------------------------------------------------------------------------------------------------------------
+ CID                                                                                                                                                                                                                                       NOT NULL NUMBER(10)
+ CNAME                                                                                                                                                                                                                                     NOT NULL VARCHAR2(10)
+ TNAME                                                                                                                                                                                                                                     NOT NULL VARCHAR2(20)
+
+SQL> INSERT INTO COURSE
+  2  VALUES(1001,'SQL','GREESHMA');
+
+1 row created.
+
+SQL> INSERT INTO COURSE
+  2  VALUES(1002,'JAVA','RAVEESH');
+
+1 row created.
+
+SQL> INSERT INTO COURSE
+  2  VALUES(1003,'PYTHON','SANTOSH');
+
+1 row created.
+
+SQL> INSERT INTO COURSE
+  2  VALUES(1004,'MERN','KISHORE');
+
+1 row created.
+
+SQL> SELECT * FROM COURSE;
+
+       CID CNAME      TNAME                                                                                                                                                                                                                                                                                                                                                                                     
+---------- ---------- --------------------                                                                                                                                                                                                                                                                                                                                                                      
+      1001 SQL        GREESHMA                                                                                                                                                                                                                                                                                                                                                                                  
+      1002 JAVA       RAVEESH                                                                                                                                                                                                                                                                                                                                                                                   
+      1003 PYTHON     SANTOSH                                                                                                                                                                                                                                                                                                                                                                                   
+      1004 MERN       KISHORE                                                                                                                                                                                                                                                                                                                                                                                   
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                                                                                                                                                                                                                               
+------------------------------ ------- ----------                                                                                                                                                                                                                                                                                                                                                               
+DEPT                           TABLE                                                                                                                                                                                                                                                                                                                                                                            
+EMP                            TABLE                                                                                                                                                                                                                                                                                                                                                                            
+BONUS                          TABLE                                                                                                                                                                                                                                                                                                                                                                            
+SALGRADE                       TABLE                                                                                                                                                                                                                                                                                                                                                                            
+ORDER1                         TABLE                                                                                                                                                                                                                                                                                                                                                                            
+PRODUCT                        TABLE                                                                                                                                                                                                                                                                                                                                                                            
+COURSE                         TABLE                                                                                                                                                                                                                                                                                                                                                                            
+
+7 rows selected.
+
+SQL> SELECT * FROM PRODUCT;
+
+       PID PNAME           PRICE                                                                                                                                                                                                                                                                                                                                                                                
+---------- ---------- ----------                                                                                                                                                                                                                                                                                                                                                                                
+         1 BOOK               50                                                                                                                                                                                                                                                                                                                                                                                
+         2 PEN                30                                                                                                                                                                                                                                                                                                                                                                                
+         3 BOTTLE             70                                                                                                                                                                                                                                                                                                                                                                                
+         4 PENCIL                                                                                                                                                                                                                                                                                                                                                                                               
+
+SQL> SELECT * FROM COURSE;
+
+       CID CNAME      TNAME                                                                                                                                                                                                                                                                                                                                                                                     
+---------- ---------- --------------------                                                                                                                                                                                                                                                                                                                                                                      
+      1001 SQL        GREESHMA                                                                                                                                                                                                                                                                                                                                                                                  
+      1002 JAVA       RAVEESH                                                                                                                                                                                                                                                                                                                                                                                   
+      1003 PYTHON     SANTOSH                                                                                                                                                                                                                                                                                                                                                                                   
+      1004 MERN       KISHORE                                                                                                                                                                                                                                                                                                                                                                                   
+
+SQL> CREATE TABLE WORKER(
+  2  WID NUMBER(10) PRIMARY KEY,
+  3  WNAME VARCHAR(20) NOT NULL,
+  4  AGE NUMBER(4) CHECK(AGE>=30),
+  5  GENDER VARCHAR(10) CHECK(GENDER IN('M','F','T')),
+  6  COUNTRY VARCHAR(20) DEFAULT(INDIA));
+COUNTRY VARCHAR(20) DEFAULT(INDIA))
+                            *
+ERROR at line 6:
+ORA-00984: column not allowed here 
+
+
+SQL>  CREATE TABLE WORKER(
+  2   WID NUMBER(10) PRIMARY KEY,
+  3   WNAME VARCHAR(20) NOT NULL,
+  4   AGE NUMBER(4) CHECK(AGE>=30),
+  5   GENDER VARCHAR(10) CHECK(GENDER IN('M','F','T')),
+  6   COUNTRY VARCHAR(20) DEFAULT('INDIA'));
+
+Table created.
+
+SQL> INSERT INTO WORKER(
+  2  VALUES(1,'VANDU',20,'F');
+VALUES(1,'VANDU',20,'F')
+*
+ERROR at line 2:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> INSERT INTO WORKER
+  2   VALUES(1,'VANDU',20,'F');
+INSERT INTO WORKER
+            *
+ERROR at line 1:
+ORA-00947: not enough values 
+
+
+SQL>  INSERT INTO WORKER
+  2    VALUES(1,'VANDU',20,'F',NULL);
+ INSERT INTO WORKER
+*
+ERROR at line 1:
+ORA-02290: check constraint (SCOTT.SYS_C005431) violated 
+
+
+SQL> INSERT INTO WORKER
+  2   VALUES(1,'VANDU',30,'F',NULL);
+
+1 row created.
+
+SQL> SELECT * FROM WORKER
+  2  ;
+
+       WID WNAME                       AGE GENDER     COUNTRY                                                                                                                                                                                                                                                                                                                                                   
+---------- -------------------- ---------- ---------- --------------------                                                                                                                                                                                                                                                                                                                                      
+         1 VANDU                        30 F                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> DELETE FROM WORKER
+  2  WHERE WID=1;
+
+1 row deleted.
+
+SQL> SELECT * FROM WORKER;
+
+no rows selected
+
+SQL> INSERT INTO WORKER
+  2  VALUES(1,'VANDU',30,'F','INDIA');
+
+1 row created.
+
+SQL> INSERT INTO WORKER
+  2  VALUES(2,'MOUNI',31,'F','CANADA');
+
+1 row created.
+
+SQL> INSERT INTO WORKER
+  2  VALUES(3,'VICKY',32,'M','USA');
+
+1 row created.
+
+SQL> INSERT INTO WORKER(WID,WNAME,AGE,GENDER)
+  2  VALUES(4,'NIKKU',30,'F');
+
+1 row created.
+
+SQL> SELECT * FROM WORKER;
+
+       WID WNAME                       AGE GENDER     COUNTRY                                                                                                                                                                                                                                                                                                                                                   
+---------- -------------------- ---------- ---------- --------------------                                                                                                                                                                                                                                                                                                                                      
+         1 VANDU                        30 F          INDIA                                                                                                                                                                                                                                                                                                                                                     
+         2 MOUNI                        31 F          CANADA                                                                                                                                                                                                                                                                                                                                                    
+         3 VICKY                        32 M          USA                                                                                                                                                                                                                                                                                                                                                       
+         4 NIKKU                        30 F          INDIA                                                                                                                                                                                                                                                                                                                                                     
+
+SQL> CREATE TABLE STUDENT(
+  2  SID NUMBER(10) PRIMARY KEY,
+  3  SNAME VARCHAR(10) NOT NULL,
+  4  MARKS NUMBER(4,2),
+  5  CID NUMBER(10) REFERENCES COURSE(CID));
+
+Table created.
+
+SQL> DESC STUDENT;
+ Name                                                                                                                                                                                                                                      Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- ------------------------------------------------------------------------------------------------------------------------------------------------------------
+ SID                                                                                                                                                                                                                                       NOT NULL NUMBER(10)
+ SNAME                                                                                                                                                                                                                                     NOT NULL VARCHAR2(10)
+ MARKS                                                                                                                                                                                                                                              NUMBER(4,2)
+ CID                                                                                                                                                                                                                                                NUMBER(10)
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(101,'MOUNI',85,1002);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(102,'VANDU',80,1003);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(103,'VICKY',87,1004);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(104,'NIKKU',80,NULL);
+
+1 row created.
+
+SQL> SELECT * FROM STUDENT;
+
+       SID SNAME           MARKS        CID                                                                                                                                                                                                                                                                                                                                                                     
+---------- ---------- ---------- ----------                                                                                                                                                                                                                                                                                                                                                                     
+       101 MOUNI              85       1002                                                                                                                                                                                                                                                                                                                                                                     
+       102 VANDU              80       1003                                                                                                                                                                                                                                                                                                                                                                     
+       103 VICKY              87       1004                                                                                                                                                                                                                                                                                                                                                                     
+       104 NIKKU              80                                                                                                                                                                                                                                                                                                                                                                                
+
+SQL> SPOOL OFF;
