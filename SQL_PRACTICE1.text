@@ -1,3 +1,5 @@
+
+
 SQL> SELECT * FROM EMP
   2  ;
 
