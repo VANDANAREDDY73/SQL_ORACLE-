@@ -1,0 +1,522 @@
+SQL> SELECT LENGTH('HELLO') FROM DUAL;
+
+LENGTH('HELLO')                                                                                                                                                                                         
+---------------                                                                                                                                                                                         
+              5                                                                                                                                                                                         
+
+SQL> SELECT LENGTH(' HELLO ') FROM DUAL;
+
+LENGTH('HELLO')                                                                                                                                                                                         
+---------------                                                                                                                                                                                         
+              7                                                                                                                                                                                         
+
+SQL> SELECT LENGTH('HI HELLO') FROM DUAL;
+
+LENGTH('HIHELLO')                                                                                                                                                                                       
+-----------------                                                                                                                                                                                       
+                8                                                                                                                                                                                       
+
+SQL> SELECT ENAME,LENGTH(ENAME) FROM EMP;
+
+ENAME      LENGTH(ENAME)                                                                                                                                                                                
+---------- -------------                                                                                                                                                                                
+SMITH                  5                                                                                                                                                                                
+ALLEN                  5                                                                                                                                                                                
+WARD                   4                                                                                                                                                                                
+JONES                  5                                                                                                                                                                                
+MARTIN                 6                                                                                                                                                                                
+BLAKE                  5                                                                                                                                                                                
+CLARK                  5                                                                                                                                                                                
+SCOTT                  5                                                                                                                                                                                
+KING                   4                                                                                                                                                                                
+TURNER                 6                                                                                                                                                                                
+ADAMS                  5                                                                                                                                                                                
+JAMES                  5                                                                                                                                                                                
+FORD                   4                                                                                                                                                                                
+MILLER                 6                                                                                                                                                                                
+
+14 rows selected.
+
+SQL> SELECT EMPNO,LENGTH(78890) FROM EMP;
+
+     EMPNO LENGTH(78890)                                                                                                                                                                                
+---------- -------------                                                                                                                                                                                
+      7369             5                                                                                                                                                                                
+      7499             5                                                                                                                                                                                
+      7521             5                                                                                                                                                                                
+      7566             5                                                                                                                                                                                
+      7654             5                                                                                                                                                                                
+      7698             5                                                                                                                                                                                
+      7782             5                                                                                                                                                                                
+      7788             5                                                                                                                                                                                
+      7839             5                                                                                                                                                                                
+      7844             5                                                                                                                                                                                
+      7876             5                                                                                                                                                                                
+      7900             5                                                                                                                                                                                
+      7902             5                                                                                                                                                                                
+      7934             5                                                                                                                                                                                
+
+14 rows selected.
+
+SQL> SELECT EMPNO,LENGTH(EMPNO) FROM EMP;
+
+     EMPNO LENGTH(EMPNO)                                                                                                                                                                                
+---------- -------------                                                                                                                                                                                
+      7369             4                                                                                                                                                                                
+      7499             4                                                                                                                                                                                
+      7521             4                                                                                                                                                                                
+      7566             4                                                                                                                                                                                
+      7654             4                                                                                                                                                                                
+      7698             4                                                                                                                                                                                
+      7782             4                                                                                                                                                                                
+      7788             4                                                                                                                                                                                
+      7839             4                                                                                                                                                                                
+      7844             4                                                                                                                                                                                
+      7876             4                                                                                                                                                                                
+      7900             4                                                                                                                                                                                
+      7902             4                                                                                                                                                                                
+      7934             4                                                                                                                                                                                
+
+14 rows selected.
+
+SQL> SELECT HIREDATE,LENGTH(HIREDATE) FROM EMP;
+
+HIREDATE  LENGTH(HIREDATE)                                                                                                                                                                              
+--------- ----------------                                                                                                                                                                              
+17-DEC-80                9                                                                                                                                                                              
+20-FEB-81                9                                                                                                                                                                              
+22-FEB-81                9                                                                                                                                                                              
+02-APR-81                9                                                                                                                                                                              
+28-SEP-81                9                                                                                                                                                                              
+01-MAY-81                9                                                                                                                                                                              
+09-JUN-81                9                                                                                                                                                                              
+19-APR-87                9                                                                                                                                                                              
+17-NOV-81                9                                                                                                                                                                              
+08-SEP-81                9                                                                                                                                                                              
+23-MAY-87                9                                                                                                                                                                              
+03-DEC-81                9                                                                                                                                                                              
+03-DEC-81                9                                                                                                                                                                              
+23-JAN-82                9                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> SELECT DEPTNO,LENGTH(DEPTNO) FROM EMP;
+
+    DEPTNO LENGTH(DEPTNO)                                                                                                                                                                               
+---------- --------------                                                                                                                                                                               
+        20              2                                                                                                                                                                               
+        30              2                                                                                                                                                                               
+        30              2                                                                                                                                                                               
+        20              2                                                                                                                                                                               
+        30              2                                                                                                                                                                               
+        30              2                                                                                                                                                                               
+        10              2                                                                                                                                                                               
+        20              2                                                                                                                                                                               
+        10              2                                                                                                                                                                               
+        30              2                                                                                                                                                                               
+        20              2                                                                                                                                                                               
+        30              2                                                                                                                                                                               
+        20              2                                                                                                                                                                               
+        10              2                                                                                                                                                                               
+
+14 rows selected.
+
+SQL> SELECT LENGTH(12.890) FROM DUAL;
+
+LENGTH(12.890)                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+             5                                                                                                                                                                                          
+
+SQL> SELECT LENGTH(00000) FROM DUAL;
+
+LENGTH(00000)                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+            1                                                                                                                                                                                           
+
+SQL> SELECT UPPER('hi') FROM DUAL;
+
+UP                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+HI                                                                                                                                                                                                      
+
+SQL> SELECT UPPER('hi hello') from dual;
+
+UPPER('H                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+HI HELLO                                                                                                                                                                                                
+
+SQL> SELECT UPPER('how r YOU') from dual;
+
+UPPER('HO                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+HOW R YOU                                                                                                                                                                                               
+
+SQL> select ename,upper(ename) from emp;
+
+ENAME      UPPER(ENAM                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SMITH      SMITH                                                                                                                                                                                        
+ALLEN      ALLEN                                                                                                                                                                                        
+WARD       WARD                                                                                                                                                                                         
+JONES      JONES                                                                                                                                                                                        
+MARTIN     MARTIN                                                                                                                                                                                       
+BLAKE      BLAKE                                                                                                                                                                                        
+CLARK      CLARK                                                                                                                                                                                        
+SCOTT      SCOTT                                                                                                                                                                                        
+KING       KING                                                                                                                                                                                         
+TURNER     TURNER                                                                                                                                                                                       
+ADAMS      ADAMS                                                                                                                                                                                        
+JAMES      JAMES                                                                                                                                                                                        
+FORD       FORD                                                                                                                                                                                         
+MILLER     MILLER                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select lower('HI') from dual;
+
+LO                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+hi                                                                                                                                                                                                      
+
+SQL> select lower('How r you') from dual;
+
+LOWER('HO                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+how r you                                                                                                                                                                                               
+
+SQL> select ename,lower(ename) from emp;
+
+ENAME      LOWER(ENAM                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SMITH      smith                                                                                                                                                                                        
+ALLEN      allen                                                                                                                                                                                        
+WARD       ward                                                                                                                                                                                         
+JONES      jones                                                                                                                                                                                        
+MARTIN     martin                                                                                                                                                                                       
+BLAKE      blake                                                                                                                                                                                        
+CLARK      clark                                                                                                                                                                                        
+SCOTT      scott                                                                                                                                                                                        
+KING       king                                                                                                                                                                                         
+TURNER     turner                                                                                                                                                                                       
+ADAMS      adams                                                                                                                                                                                        
+JAMES      james                                                                                                                                                                                        
+FORD       ford                                                                                                                                                                                         
+MILLER     miller                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select job,lower(job) from emp;
+
+JOB       LOWER(JOB                                                                                                                                                                                     
+--------- ---------                                                                                                                                                                                     
+CLERK     clerk                                                                                                                                                                                         
+SALESMAN  salesman                                                                                                                                                                                      
+SALESMAN  salesman                                                                                                                                                                                      
+MANAGER   manager                                                                                                                                                                                       
+SALESMAN  salesman                                                                                                                                                                                      
+MANAGER   manager                                                                                                                                                                                       
+MANAGER   manager                                                                                                                                                                                       
+ANALYST   analyst                                                                                                                                                                                       
+PRESIDENT president                                                                                                                                                                                     
+SALESMAN  salesman                                                                                                                                                                                      
+CLERK     clerk                                                                                                                                                                                         
+CLERK     clerk                                                                                                                                                                                         
+ANALYST   analyst                                                                                                                                                                                       
+CLERK     clerk                                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select trim('    hi     ')
+  2  from dual;
+
+TR                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+hi                                                                                                                                                                                                      
+
+SQL> select trim(' hi hello    ') from dual;
+
+TRIM('HI                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+hi hello                                                                                                                                                                                                
+
+SQL> select trim('h' from 'hello') from dual;
+
+TRIM                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+ello                                                                                                                                                                                                    
+
+SQL> select trim('e' from 'hello') from dual;
+
+TRIM(                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+hello                                                                                                                                                                                                   
+
+SQL> select replace('sql','s','z') from dual;
+
+REP                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+zql                                                                                                                                                                                                     
+
+SQL> select replace('java','a','q') from dual;
+
+REPL                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+jqvq                                                                                                                                                                                                    
+
+SQL> select replace('good morning','o','w') from dual;
+
+REPLACE('GOO                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+gwwd mwrning                                                                                                                                                                                            
+
+SQL> SELECT REPLACE('GOOD MORNING','OR','Z') FROM DUAL;
+
+REPLACE('GO                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+GOOD MZNING                                                                                                                                                                                             
+
+SQL> SELECT REPLACE('GOOD MORNING','MORNING','EVENING') FROM DUAL;
+
+REPLACE('GOO                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+GOOD EVENING                                                                                                                                                                                            
+
+SQL> SELECT REPLACE('GOOD MORNING','GOOD','BAD') FROM DUAL;
+
+REPLACE('GO                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+BAD MORNING                                                                                                                                                                                             
+
+SQL> SELECT ENAME,REPLACE(ENAME,'A','Q') from emp;
+
+ENAME      REPLACE(EN                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SMITH      SMITH                                                                                                                                                                                        
+ALLEN      QLLEN                                                                                                                                                                                        
+WARD       WQRD                                                                                                                                                                                         
+JONES      JONES                                                                                                                                                                                        
+MARTIN     MQRTIN                                                                                                                                                                                       
+BLAKE      BLQKE                                                                                                                                                                                        
+CLARK      CLQRK                                                                                                                                                                                        
+SCOTT      SCOTT                                                                                                                                                                                        
+KING       KING                                                                                                                                                                                         
+TURNER     TURNER                                                                                                                                                                                       
+ADAMS      QDQMS                                                                                                                                                                                        
+JAMES      JQMES                                                                                                                                                                                        
+FORD       FORD                                                                                                                                                                                         
+MILLER     MILLER                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select ename,replace(ename,'A',7) from emp;
+
+ENAME      REPLACE(EN                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SMITH      SMITH                                                                                                                                                                                        
+ALLEN      7LLEN                                                                                                                                                                                        
+WARD       W7RD                                                                                                                                                                                         
+JONES      JONES                                                                                                                                                                                        
+MARTIN     M7RTIN                                                                                                                                                                                       
+BLAKE      BL7KE                                                                                                                                                                                        
+CLARK      CL7RK                                                                                                                                                                                        
+SCOTT      SCOTT                                                                                                                                                                                        
+KING       KING                                                                                                                                                                                         
+TURNER     TURNER                                                                                                                                                                                       
+ADAMS      7D7MS                                                                                                                                                                                        
+JAMES      J7MES                                                                                                                                                                                        
+FORD       FORD                                                                                                                                                                                         
+MILLER     MILLER                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select empno,replace(empno,7,4) from emp;
+
+     EMPNO REPLACE(EMPNO,7,4)                                                                                                                                                                           
+---------- ----------------------------------------                                                                                                                                                     
+      7369 4369                                                                                                                                                                                         
+      7499 4499                                                                                                                                                                                         
+      7521 4521                                                                                                                                                                                         
+      7566 4566                                                                                                                                                                                         
+      7654 4654                                                                                                                                                                                         
+      7698 4698                                                                                                                                                                                         
+      7782 4482                                                                                                                                                                                         
+      7788 4488                                                                                                                                                                                         
+      7839 4839                                                                                                                                                                                         
+      7844 4844                                                                                                                                                                                         
+      7876 4846                                                                                                                                                                                         
+      7900 4900                                                                                                                                                                                         
+      7902 4902                                                                                                                                                                                         
+      7934 4934                                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select substr('good morning',6) from dual;
+
+SUBSTR(                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+morning                                                                                                                                                                                                 
+
+SQL> select substr('good morning',-7) from dual;
+
+SUBSTR(                                                                                                                                                                                                 
+-------                                                                                                                                                                                                 
+morning                                                                                                                                                                                                 
+
+SQL> select ename,substr(ename,3) from emp;
+
+ENAME      SUBSTR(E                                                                                                                                                                                     
+---------- --------                                                                                                                                                                                     
+SMITH      ITH                                                                                                                                                                                          
+ALLEN      LEN                                                                                                                                                                                          
+WARD       RD                                                                                                                                                                                           
+JONES      NES                                                                                                                                                                                          
+MARTIN     RTIN                                                                                                                                                                                         
+BLAKE      AKE                                                                                                                                                                                          
+CLARK      ARK                                                                                                                                                                                          
+SCOTT      OTT                                                                                                                                                                                          
+KING       NG                                                                                                                                                                                           
+TURNER     RNER                                                                                                                                                                                         
+ADAMS      AMS                                                                                                                                                                                          
+JAMES      MES                                                                                                                                                                                          
+FORD       RD                                                                                                                                                                                           
+MILLER     LLER                                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select ename,substr(ename,-3);
+select ename,substr(ename,-3)
+                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select ename,substr(ename,-3)
+  2  from emp;
+
+ENAME      SUB                                                                                                                                                                                          
+---------- ---                                                                                                                                                                                          
+SMITH      ITH                                                                                                                                                                                          
+ALLEN      LEN                                                                                                                                                                                          
+WARD       ARD                                                                                                                                                                                          
+JONES      NES                                                                                                                                                                                          
+MARTIN     TIN                                                                                                                                                                                          
+BLAKE      AKE                                                                                                                                                                                          
+CLARK      ARK                                                                                                                                                                                          
+SCOTT      OTT                                                                                                                                                                                          
+KING       ING                                                                                                                                                                                          
+TURNER     NER                                                                                                                                                                                          
+ADAMS      AMS                                                                                                                                                                                          
+JAMES      MES                                                                                                                                                                                          
+FORD       ORD                                                                                                                                                                                          
+MILLER     LER                                                                                                                                                                                          
+
+14 rows selected.
+
+SQL> select substr('good morning',1,4) from dual;
+
+SUBS                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+good                                                                                                                                                                                                    
+
+SQL> select substr('good morning',6,2) from dual;
+
+SU                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+mo                                                                                                                                                                                                      
+
+SQL> select ename,substr(ename,1,3) from emp;
+
+ENAME      SUB                                                                                                                                                                                          
+---------- ---                                                                                                                                                                                          
+SMITH      SMI                                                                                                                                                                                          
+ALLEN      ALL                                                                                                                                                                                          
+WARD       WAR                                                                                                                                                                                          
+JONES      JON                                                                                                                                                                                          
+MARTIN     MAR                                                                                                                                                                                          
+BLAKE      BLA                                                                                                                                                                                          
+CLARK      CLA                                                                                                                                                                                          
+SCOTT      SCO                                                                                                                                                                                          
+KING       KIN                                                                                                                                                                                          
+TURNER     TUR                                                                                                                                                                                          
+ADAMS      ADA                                                                                                                                                                                          
+JAMES      JAM                                                                                                                                                                                          
+FORD       FOR                                                                                                                                                                                          
+MILLER     MIL                                                                                                                                                                                          
+
+14 rows selected.
+
+SQL> select sysdate from dual;
+
+SYSDATE                                                                                                                                                                                                 
+---------                                                                                                                                                                                               
+09-JUL-23                                                                                                                                                                                               
+
+SQL> select current_date from dual;
+
+CURRENT_D                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+09-JUL-23                                                                                                                                                                                               
+
+SQL> select sessiontimezone from dual;
+
+SESSIONTIMEZONE                                                                                                                                                                                         
+---------------------------------------------------------------------------                                                                                                                             
++05:30                                                                                                                                                                                                  
+
+SQL> select months_between('01-jul-23','01-jan-23') from dual;
+
+MONTHS_BETWEEN('01-JUL-23','01-JAN-23')                                                                                                                                                                 
+---------------------------------------                                                                                                                                                                 
+                                      6                                                                                                                                                                 
+
+SQL> select months_between(sysdate,'01-jan-2023') from dual;
+
+MONTHS_BETWEEN(SYSDATE,'01-JAN-2023')                                                                                                                                                                   
+-------------------------------------                                                                                                                                                                   
+                             6.258296                                                                                                                                                                   
+
+SQL> select ename,hiredate,months_between(sysdate,hiredate)
+  2  from emp;
+
+ENAME      HIREDATE  MONTHS_BETWEEN(SYSDATE,HIREDATE)                                                                                                                                                   
+---------- --------- --------------------------------                                                                                                                                                   
+SMITH      17-DEC-80                       510.742182                                                                                                                                                   
+ALLEN      20-FEB-81                       508.645407                                                                                                                                                   
+WARD       22-FEB-81                       508.580891                                                                                                                                                   
+JONES      02-APR-81                       507.226052                                                                                                                                                   
+MARTIN     28-SEP-81                       501.387343                                                                                                                                                   
+BLAKE      01-MAY-81                       506.258311                                                                                                                                                   
+CLARK      09-JUN-81                              505                                                                                                                                                   
+SCOTT      19-APR-87                       434.677665                                                                                                                                                   
+KING       17-NOV-81                       499.742182                                                                                                                                                   
+TURNER     08-SEP-81                       502.032504                                                                                                                                                   
+ADAMS      23-MAY-87                       433.548633                                                                                                                                                   
+JAMES      03-DEC-81                       499.193794                                                                                                                                                   
+FORD       03-DEC-81                       499.193794                                                                                                                                                   
+MILLER     23-JAN-82                       497.548633                                                                                                                                                   
+
+14 rows selected.
+
+SQL>  select ename,hiredate,months_between(sysdate,hiredate)/12
+  2  from emp;
+
+ENAME      HIREDATE  MONTHS_BETWEEN(SYSDATE,HIREDATE)/12                                                                                                                                                
+---------- --------- -----------------------------------                                                                                                                                                
+SMITH      17-DEC-80                          42.5618489                                                                                                                                                
+ALLEN      20-FEB-81                          42.3871177                                                                                                                                                
+WARD       22-FEB-81                          42.3817413                                                                                                                                                
+JONES      02-APR-81                          42.2688381                                                                                                                                                
+MARTIN     28-SEP-81                           41.782279                                                                                                                                                
+BLAKE      01-MAY-81                           42.188193                                                                                                                                                
+CLARK      09-JUN-81                          42.0833333                                                                                                                                                
+SCOTT      19-APR-87                          36.2231392                                                                                                                                                
+KING       17-NOV-81                          41.6451822                                                                                                                                                
+TURNER     08-SEP-81                          41.8360424                                                                                                                                                
+ADAMS      23-MAY-87                          36.1290532                                                                                                                                                
+JAMES      03-DEC-81                          41.5994833                                                                                                                                                
+FORD       03-DEC-81                          41.5994833                                                                                                                                                
+MILLER     23-JAN-82                          41.4623865                                                                                                                                                
+
+14 rows selected.
+
+SQL> spool off;
