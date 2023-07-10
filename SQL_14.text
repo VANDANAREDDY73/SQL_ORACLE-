@@ -1,0 +1,62 @@
+SQL> SELECT MIN(400) FROM DUAL;
+
+  MIN(400)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       400                                                                                                                                                                                              
+
+SQL> SELECT MIN(SAL) FROM EMP;
+
+  MIN(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+
+SQL> SELECT MIN(DEPTNO) FROM DEPT;
+
+MIN(DEPTNO)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         10                                                                                                                                                                                             
+
+SQL> SELECT MIN(EMPNO) FROM EMP;
+
+MIN(EMPNO)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      7369                                                                                                                                                                                              
+
+SQL> SELECT MIN(EMPNO,DEPTNO) FROM EMP;
+SELECT MIN(EMPNO,DEPTNO) FROM EMP
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments 
+
+
+SQL> SELECT MIN(EMPNO),MIN(DEPTNO) FROM EMP;
+
+MIN(EMPNO) MIN(DEPTNO)                                                                                                                                                                                  
+---------- -----------                                                                                                                                                                                  
+      7369          10                                                                                                                                                                                  
+
+SQL> SELECT MIN(ENAME) FROM EMP;
+
+MIN(ENAME)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+ADAMS                                                                                                                                                                                                   
+
+SQL> SELECT MIN(HIREDATE) FROM EMP;
+
+MIN(HIRED                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+17-DEC-80                                                                                                                                                                                               
+
+SQL> SELECT MAX(SAL) FROM EMP;
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+
+SQL> SELECT MAX(ENAME) FROM EMP;
+
+MAX(ENAME)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+WARD                                                                                                                                                                                                    
+
+SQL> SPOOL OFF;

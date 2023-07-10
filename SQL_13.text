@@ -1,0 +1,298 @@
+SQL> set pages 200 lines 200;
+SQL> SELECT TO_DATE('11/11/11','DD-MM-YY') FROM DUAL;
+
+TO_DATE('                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+11-NOV-11                                                                                                                                                                                               
+
+SQL> SELECT TO_DATE('11-JAN-23','MM-DD-YY')
+  2  FROM DUAL;
+SELECT TO_DATE('11-JAN-23','MM-DD-YY')
+               *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected 
+
+
+SQL> SELECT TO_DATE('04-01-23','MM-DD-YY')
+  2  FROM DUAL;
+
+TO_DATE('                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+01-APR-23                                                                                                                                                                                               
+
+SQL> SELECT TO_DATE('11-03-84','DD-MM-YY')
+  2  FROM DUAL;
+
+TO_DATE('                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+11-MAR-84                                                                                                                                                                                               
+
+SQL> SELECT TO_DATE('23-11-23','MM-DD-YY') FROM DUAL;
+SELECT TO_DATE('23-11-23','MM-DD-YY') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> SELECT TO_DATE('11-11-34','MM-YY-DD') FROM DUAL;
+SELECT TO_DATE('11-11-34','MM-YY-DD') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01847: day of month must be between 1 and last day of month 
+
+
+SQL> SELECT TO_DATE(HIREDATE,'MM-DD-YY') FROM EMP;
+SELECT TO_DATE(HIREDATE,'MM-DD-YY') FROM EMP
+               *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> SELECT TO_DATE(HIREDATE,'DD-MM-YY') FROM EMP;
+
+TO_DATE(H                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+17-DEC-80                                                                                                                                                                                               
+20-FEB-81                                                                                                                                                                                               
+22-FEB-81                                                                                                                                                                                               
+02-APR-81                                                                                                                                                                                               
+28-SEP-81                                                                                                                                                                                               
+01-MAY-81                                                                                                                                                                                               
+09-JUN-81                                                                                                                                                                                               
+19-APR-87                                                                                                                                                                                               
+17-NOV-81                                                                                                                                                                                               
+08-SEP-81                                                                                                                                                                                               
+23-MAY-87                                                                                                                                                                                               
+03-DEC-81                                                                                                                                                                                               
+03-DEC-81                                                                                                                                                                                               
+23-JAN-82                                                                                                                                                                                               
+
+14 rows selected.
+
+SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE                                                                                                                                                                                                 
+---------                                                                                                                                                                                               
+10-JUL-23                                                                                                                                                                                               
+
+SQL> SELECT TO_DATE(SYSDATE,'DD-MM-YY') FROM DUAL;
+
+TO_DATE(S                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+10-JUL-23                                                                                                                                                                                               
+
+SQL> SELECT TO_DATE(SYSDATE,'MM-DD-YY') FROM DUAL;
+SELECT TO_DATE(SYSDATE,'MM-DD-YY') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected 
+
+
+SQL> SELECT HIREDATE FROM EMP;
+
+HIREDATE                                                                                                                                                                                                
+---------                                                                                                                                                                                               
+17-DEC-80                                                                                                                                                                                               
+20-FEB-81                                                                                                                                                                                               
+22-FEB-81                                                                                                                                                                                               
+02-APR-81                                                                                                                                                                                               
+28-SEP-81                                                                                                                                                                                               
+01-MAY-81                                                                                                                                                                                               
+09-JUN-81                                                                                                                                                                                               
+19-APR-87                                                                                                                                                                                               
+17-NOV-81                                                                                                                                                                                               
+08-SEP-81                                                                                                                                                                                               
+23-MAY-87                                                                                                                                                                                               
+03-DEC-81                                                                                                                                                                                               
+03-DEC-81                                                                                                                                                                                               
+23-JAN-82                                                                                                                                                                                               
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR(HIREDATE,'YYYY') FROM EMP;
+
+TO_C                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+1980                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1987                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1987                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1981                                                                                                                                                                                                    
+1982                                                                                                                                                                                                    
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR(HIREDATE,'MONTH')
+  2  FROM EMP;
+
+TO_CHAR(H                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+DECEMBER                                                                                                                                                                                                
+FEBRUARY                                                                                                                                                                                                
+FEBRUARY                                                                                                                                                                                                
+APRIL                                                                                                                                                                                                   
+SEPTEMBER                                                                                                                                                                                               
+MAY                                                                                                                                                                                                     
+JUNE                                                                                                                                                                                                    
+APRIL                                                                                                                                                                                                   
+NOVEMBER                                                                                                                                                                                                
+SEPTEMBER                                                                                                                                                                                               
+MAY                                                                                                                                                                                                     
+DECEMBER                                                                                                                                                                                                
+DECEMBER                                                                                                                                                                                                
+JANUARY                                                                                                                                                                                                 
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR(HIREDATE,'DAY')
+  2  FROM EMP;
+
+TO_CHAR(H                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+WEDNESDAY                                                                                                                                                                                               
+FRIDAY                                                                                                                                                                                                  
+SUNDAY                                                                                                                                                                                                  
+THURSDAY                                                                                                                                                                                                
+MONDAY                                                                                                                                                                                                  
+FRIDAY                                                                                                                                                                                                  
+TUESDAY                                                                                                                                                                                                 
+SUNDAY                                                                                                                                                                                                  
+TUESDAY                                                                                                                                                                                                 
+TUESDAY                                                                                                                                                                                                 
+SATURDAY                                                                                                                                                                                                
+THURSDAY                                                                                                                                                                                                
+THURSDAY                                                                                                                                                                                                
+SATURDAY                                                                                                                                                                                                
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR(HIREDATE,'HH:MI:SS')
+  2  FROM EMP;
+
+TO_CHAR(                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+12:00:00                                                                                                                                                                                                
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR(HIREDATE,'DAY-DD-MONTH-YYYY')
+  2  FROM EMP;
+
+TO_CHAR(HIREDATE,'DAY-DD-MO                                                                                                                                                                             
+---------------------------                                                                                                                                                                             
+WEDNESDAY-17-DECEMBER -1980                                                                                                                                                                             
+FRIDAY   -20-FEBRUARY -1981                                                                                                                                                                             
+SUNDAY   -22-FEBRUARY -1981                                                                                                                                                                             
+THURSDAY -02-APRIL    -1981                                                                                                                                                                             
+MONDAY   -28-SEPTEMBER-1981                                                                                                                                                                             
+FRIDAY   -01-MAY      -1981                                                                                                                                                                             
+TUESDAY  -09-JUNE     -1981                                                                                                                                                                             
+SUNDAY   -19-APRIL    -1987                                                                                                                                                                             
+TUESDAY  -17-NOVEMBER -1981                                                                                                                                                                             
+TUESDAY  -08-SEPTEMBER-1981                                                                                                                                                                             
+SATURDAY -23-MAY      -1987                                                                                                                                                                             
+THURSDAY -03-DECEMBER -1981                                                                                                                                                                             
+THURSDAY -03-DECEMBER -1981                                                                                                                                                                             
+SATURDAY -23-JANUARY  -1982                                                                                                                                                                             
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR(HIREDATE,'DD-MONTH-YY-HH:MI');
+SELECT TO_CHAR(HIREDATE,'DD-MONTH-YY-HH:MI')
+                                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT TO_CHAR(HIREDATE,'DD-MONTH-YY-HH:MI')
+  2  FROM EMP;
+
+TO_CHAR(HIREDATE,'DD-                                                                                                                                                                                   
+---------------------                                                                                                                                                                                   
+17-DECEMBER -80-12:00                                                                                                                                                                                   
+20-FEBRUARY -81-12:00                                                                                                                                                                                   
+22-FEBRUARY -81-12:00                                                                                                                                                                                   
+02-APRIL    -81-12:00                                                                                                                                                                                   
+28-SEPTEMBER-81-12:00                                                                                                                                                                                   
+01-MAY      -81-12:00                                                                                                                                                                                   
+09-JUNE     -81-12:00                                                                                                                                                                                   
+19-APRIL    -87-12:00                                                                                                                                                                                   
+17-NOVEMBER -81-12:00                                                                                                                                                                                   
+08-SEPTEMBER-81-12:00                                                                                                                                                                                   
+23-MAY      -87-12:00                                                                                                                                                                                   
+03-DECEMBER -81-12:00                                                                                                                                                                                   
+03-DECEMBER -81-12:00                                                                                                                                                                                   
+23-JANUARY  -82-12:00                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR('10-JUL-23','DAY') FROM DUAL;
+SELECT TO_CHAR('10-JUL-23','DAY') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> SELECT TO_CHAR(SYSDATE,'DAY');
+SELECT TO_CHAR(SYSDATE,'DAY')
+                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT TO_CHAR(SYSDATE,'DAY')
+  2  FROM DUAL;
+
+TO_CHAR(S                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+MONDAY                                                                                                                                                                                                  
+
+SQL> SELECT TO_CHAR('10-JUL-2023','YYYY')
+  2  FROM DUAL;
+SELECT TO_CHAR('10-JUL-2023','YYYY')
+               *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> SELECT TO_CHAR(SYSDATE,'HH:MI:SS') FROM DUAL;
+
+TO_CHAR(                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+09:34:59                                                                                                                                                                                                
+
+SQL> SELECT TO_CHAR(CURRENT_DATE,'YYYY') FROM DUAL;
+
+TO_C                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+2023                                                                                                                                                                                                    
+
+SQL> SELECT TO_CHAR(CURRENT_DATE,'DAY')
+  2  FROM DUAL;
+
+TO_CHAR(C                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+MONDAY                                                                                                                                                                                                  
+
+SQL> SPOOL OFF;
