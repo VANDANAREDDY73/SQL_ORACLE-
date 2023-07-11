@@ -1,0 +1,155 @@
+SQL> SELECT MAX(SAL) FROM EMP;
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+
+SQL> SELECT * FROM EMP
+  2  WHERE SAL=MAX(SAL);
+WHERE SAL=MAX(SAL)
+          *
+ERROR at line 2:
+ORA-00934: group function is not allowed here 
+
+
+SQL> SELECT ENAME,MAX(SAL)
+  2  FROM EMP;
+SELECT ENAME,MAX(SAL)
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> SELECT MAX(SAL)
+  2  FROM EMP
+  3  WHERE DEPTNO IN(10,30);
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+
+SQL> SELECT MAX(SAL)
+  2  FROM EMP
+  3  WHERE JOB='SALESMAN';
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+
+SQL> SELECT SUM(SAL)
+  2  FROM EMP;
+
+  SUM(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+     29025                                                                                                                                                                                              
+
+SQL> SELECT SUM(SAL)+ SUM(COMM)
+  2  FROM EMP;
+
+SUM(SAL)+SUM(COMM)                                                                                                                                                                                      
+------------------                                                                                                                                                                                      
+             31225                                                                                                                                                                                      
+
+SQL> SELECT SUM(SAL),SUM(COMM)
+  2  FROM EMP;
+
+  SUM(SAL)  SUM(COMM)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+     29025       2200                                                                                                                                                                                   
+
+SQL> SELECT SUM(SAL),MAX(SAL)
+  2  FROM EMP;
+
+  SUM(SAL)   MAX(SAL)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+     29025       5000                                                                                                                                                                                   
+
+SQL> SELECT AVG(SAL)
+  2  FROM EMP;
+
+  AVG(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+2073.21429                                                                                                                                                                                              
+
+SQL> SELECT AVG(SAL)
+  2  FROM EMP
+  3  WHERE JOB IN('SALESMAN','CLERK');
+
+  AVG(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+   1218.75                                                                                                                                                                                              
+
+SQL> SELECT COUNT(EMPNO)
+  2  FROM EMP;
+
+COUNT(EMPNO)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+          14                                                                                                                                                                                            
+
+SQL> SELECT COUNT(MGR)
+  2  FROM EMP;
+
+COUNT(MGR)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        13                                                                                                                                                                                              
+
+SQL> SELECT COUNT(COMM)
+  2  FROMM EMP;
+FROMM EMP
+      *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT COUNT(COMM)
+  2  FROM EMP;
+
+COUNT(COMM)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+          4                                                                                                                                                                                             
+
+SQL> SELECT COUNT(*)
+  2  FROM EMP;
+
+  COUNT(*)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        14                                                                                                                                                                                              
+
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE JOB='SALESMAN';
+
+  COUNT(*)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE DEPTNO IN(10,30);
+
+  COUNT(*)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         9                                                                                                                                                                                              
+
+SQL> SELECT MAX(SAL)
+  2  FROM EMP;
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+
+SQL> SELECT * FROM EMP
+  2  WHERE SAL=( SELECT MAX(SAL) FROM EMP);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+
+SQL> SELECT * FROM EMP
+  2  WHERE SAL=(SELECT MIN(SAL) FROM EMP);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+
+SQL> SPOOL OFF
