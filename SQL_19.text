@@ -1,0 +1,206 @@
+SQL> select * from emp
+  2  where ename=(select * from emp
+  3  
+SQL> select * from emp
+  2  where mgr=(select * from emp
+  3  
+SQL> select * from emp
+  2  where mgr=(select mgr from emp
+  3  where ename='SCOTT');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP
+  2  WHERE EMPNO=(SELECT MGR FROM EMP WHERE ENAME='SCOTT');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE MGR=(SELECT EMPNO FROM EMP WHERE ENAME='SCOTT');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+
+SQL> SELECT * FROM EMP
+  2  WHERE SAL>AVG(SAL)
+  3  ;
+WHERE SAL>AVG(SAL)
+          *
+ERROR at line 2:
+ORA-00934: group function is not allowed here 
+
+
+SQL> SELECT * FROM EMP
+  2  WHERE SAL > (SELECT AVG(SAL) FROM EMP);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+6 rows selected.
+
+SQL> SELECT AVG(SAL) FROM EMP;
+
+  AVG(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+2073.21429                                                                                                                                                                                              
+
+SQL> SELECT * FROM EMP
+  2  WHERE SAL>(SELECT SAL FROM EMP
+  3  WHERE ENAME='BLAKE');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+SQL> SELECT * FROM EMP
+  2  WHERE DEPTNO=20,SAL > (SELECT SAL FROM EMP
+  3  WHERE
+  4  
+SQL> SELECT * FROM EMP
+  2  WHERE DEPTNO=20,SAL > (SELECT AVG(SAL) FROM EMP
+  3  WHERE DEPTNO=20);
+WHERE DEPTNO=20,SAL > (SELECT AVG(SAL) FROM EMP
+               *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL>  SELECT * FROM EMP
+  2   WHERE DEPTNO=20,SAL > (SELECT AVG(SAL) FROM EMP
+  3  WHERE DEPTNO=20));
+ WHERE DEPTNO=20,SAL > (SELECT AVG(SAL) FROM EMP
+                *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT * FROM EMP
+  2  WHERE DEPTNO=(SELECT DEPTNO FROM EMP
+  3  WHERE SAL >(SELECT AVG(SAL) FROM EMP WHERE DEPTNO=20));
+WHERE DEPTNO=(SELECT DEPTNO FROM EMP
+              *
+ERROR at line 2:
+ORA-01427: single-row subquery returns more than one row 
+
+
+SQL>  SELECT * FROM EMP
+  2   WHERE DEPTNO IN(SELECT DEPTNO FROM EMP
+  3  WHERE SAL >(SELECT AVG(SAL) FROM EMP WHERE DEPTNO=20));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP
+  2  
+SQL> SELECT AVG(SAL) FROM EMP
+  2  WHERE DEPTNO=20;
+
+  AVG(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      2175                                                                                                                                                                                              
+
+SQL> SELECT * FROM EMP
+  2  WHERE SAL>(SELECT AVG(SAL) FROM EMP
+  3  WHERE DEPTNO=20);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+6 rows selected.
+
+SQL> SELECT * FROM EMP
+  2  WHERE DEPTNO=20 AND ( SELECT * FROM EMP
+  3   WHERE SAL>(SELECT AVG(SAL) FROM EMP
+  4   WHERE DEPTNO=20));
+ WHERE DEPTNO=20))
+                 *
+ERROR at line 4:
+ORA-00936: missing expression 
+
+
+SQL> SELECT * FROM EMP
+  2  WHERE DEPTNO=20 AND SAL>SELECT * FROM EMP
+  3  
+SQL> SELECT * FROM EMP
+  2  WHERE DEPTNO=20 AND SAL>(SELECT AVG(SAL) FROM EMP WHERE DEPTNO=20);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+SQL> SELECT MAX(SAL) FROM EMP WHERE JOB='CLERK';
+
+  MAX(SAL)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+
+SQL> SELECT ENAME FROM EMP
+  2  WHERE JOB='SALESMAN' AND SAL>(SELECT MAX(SAL) FROM EMP WHERE JOB='CLERK');
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+ALLEN                                                                                                                                                                                                   
+TURNER                                                                                                                                                                                                  
+
+SQL> SPOOL OFF
