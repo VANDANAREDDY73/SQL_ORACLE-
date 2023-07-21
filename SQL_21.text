@@ -1,0 +1,376 @@
+SQL> CREATE TABLE COURSE(
+  2  CID NUMBER(10) PRIMARY KEY,
+  3  CNAME VARCHAR(20) NOT NULL,
+  4  TNAME VARCHAR(20) NOT NULL);
+
+Table created.
+
+SQL> SLECT * FROM COURSE
+SP2-0734: unknown command beginning "SLECT * FR..." - rest of line ignored.
+SQL> SELECT * FROM TABLE;
+SELECT * FROM TABLE
+                  *
+ERROR at line 1:
+ORA-00906: missing left parenthesis 
+
+
+SQL> SELECT * FROM COURSE;
+
+no rows selected
+
+SQL> INSERT INTO COURSE
+  2  VALUES(1,'SQL','X');
+
+1 row created.
+
+SQL> INSERT INTO COURSE
+  2  VALUES(2,'JAVA','Y');
+
+1 row created.
+
+SQL> INSERT INTO COURSE
+  2  VALUES(2,'CSS','Z');
+INSERT INTO COURSE
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SCOTT.SYS_C005491) violated 
+
+
+SQL> INSERT INTO VALUES
+  2  
+SQL> INSERT INTO COURSE
+  2  VALUES(3,'CSS','Z');
+
+1 row created.
+
+SQL> INSERT INTO COURSE
+  2  VALUES(4,'HTML','A');
+
+1 row created.
+
+SQL> SELECT * FROM COURSE;
+
+       CID CNAME                TNAME                                                                                                                                                                   
+---------- -------------------- --------------------                                                                                                                                                    
+         1 SQL                  X                                                                                                                                                                       
+         2 JAVA                 Y                                                                                                                                                                       
+         3 CSS                  Z                                                                                                                                                                       
+         4 HTML                 A                                                                                                                                                                       
+
+SQL> DESC COURSE;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ CID                                                                                                               NOT NULL NUMBER(10)
+ CNAME                                                                                                             NOT NULL VARCHAR2(20)
+ TNAME                                                                                                             NOT NULL VARCHAR2(20)
+
+SQL> SELECT E.ENAME,E.DEPTNO,D.DEPTNO,D.DNAME
+  2  FROM EMP
+  3  E JOIN DEPT D
+  4  ON E.DEPTNO != D.DEPTNO;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                                                                                  
+---------- ---------- ---------- --------------                                                                                                                                                         
+SMITH              20         10 ACCOUNTING                                                                                                                                                             
+ALLEN              30         10 ACCOUNTING                                                                                                                                                             
+WARD               30         10 ACCOUNTING                                                                                                                                                             
+JONES              20         10 ACCOUNTING                                                                                                                                                             
+MARTIN             30         10 ACCOUNTING                                                                                                                                                             
+BLAKE              30         10 ACCOUNTING                                                                                                                                                             
+SCOTT              20         10 ACCOUNTING                                                                                                                                                             
+TURNER             30         10 ACCOUNTING                                                                                                                                                             
+ADAMS              20         10 ACCOUNTING                                                                                                                                                             
+JAMES              30         10 ACCOUNTING                                                                                                                                                             
+FORD               20         10 ACCOUNTING                                                                                                                                                             
+ALLEN              30         20 RESEARCH                                                                                                                                                               
+WARD               30         20 RESEARCH                                                                                                                                                               
+MARTIN             30         20 RESEARCH                                                                                                                                                               
+BLAKE              30         20 RESEARCH                                                                                                                                                               
+CLARK              10         20 RESEARCH                                                                                                                                                               
+KING               10         20 RESEARCH                                                                                                                                                               
+TURNER             30         20 RESEARCH                                                                                                                                                               
+JAMES              30         20 RESEARCH                                                                                                                                                               
+MILLER             10         20 RESEARCH                                                                                                                                                               
+SMITH              20         30 SALES                                                                                                                                                                  
+JONES              20         30 SALES                                                                                                                                                                  
+CLARK              10         30 SALES                                                                                                                                                                  
+SCOTT              20         30 SALES                                                                                                                                                                  
+KING               10         30 SALES                                                                                                                                                                  
+ADAMS              20         30 SALES                                                                                                                                                                  
+FORD               20         30 SALES                                                                                                                                                                  
+MILLER             10         30 SALES                                                                                                                                                                  
+SMITH              20         40 OPERATIONS                                                                                                                                                             
+ALLEN              30         40 OPERATIONS                                                                                                                                                             
+WARD               30         40 OPERATIONS                                                                                                                                                             
+JONES              20         40 OPERATIONS                                                                                                                                                             
+MARTIN             30         40 OPERATIONS                                                                                                                                                             
+BLAKE              30         40 OPERATIONS                                                                                                                                                             
+CLARK              10         40 OPERATIONS                                                                                                                                                             
+SCOTT              20         40 OPERATIONS                                                                                                                                                             
+KING               10         40 OPERATIONS                                                                                                                                                             
+TURNER             30         40 OPERATIONS                                                                                                                                                             
+ADAMS              20         40 OPERATIONS                                                                                                                                                             
+JAMES              30         40 OPERATIONS                                                                                                                                                             
+FORD               20         40 OPERATIONS                                                                                                                                                             
+MILLER             10         40 OPERATIONS                                                                                                                                                             
+
+42 rows selected.
+
+SQL> SELECT E.ENAME,E.DEPTNO,D.DEPTNO,D.DNAME
+  2  FROM EMP E JOIN DEPT D
+  3  ON E.DEPTNO <= D.DEPTNO;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                                                                                  
+---------- ---------- ---------- --------------                                                                                                                                                         
+SMITH              20         20 RESEARCH                                                                                                                                                               
+SMITH              20         30 SALES                                                                                                                                                                  
+SMITH              20         40 OPERATIONS                                                                                                                                                             
+ALLEN              30         30 SALES                                                                                                                                                                  
+ALLEN              30         40 OPERATIONS                                                                                                                                                             
+WARD               30         30 SALES                                                                                                                                                                  
+WARD               30         40 OPERATIONS                                                                                                                                                             
+JONES              20         20 RESEARCH                                                                                                                                                               
+JONES              20         30 SALES                                                                                                                                                                  
+JONES              20         40 OPERATIONS                                                                                                                                                             
+MARTIN             30         30 SALES                                                                                                                                                                  
+MARTIN             30         40 OPERATIONS                                                                                                                                                             
+BLAKE              30         30 SALES                                                                                                                                                                  
+BLAKE              30         40 OPERATIONS                                                                                                                                                             
+CLARK              10         10 ACCOUNTING                                                                                                                                                             
+CLARK              10         20 RESEARCH                                                                                                                                                               
+CLARK              10         30 SALES                                                                                                                                                                  
+CLARK              10         40 OPERATIONS                                                                                                                                                             
+SCOTT              20         20 RESEARCH                                                                                                                                                               
+SCOTT              20         30 SALES                                                                                                                                                                  
+SCOTT              20         40 OPERATIONS                                                                                                                                                             
+KING               10         10 ACCOUNTING                                                                                                                                                             
+KING               10         20 RESEARCH                                                                                                                                                               
+KING               10         30 SALES                                                                                                                                                                  
+KING               10         40 OPERATIONS                                                                                                                                                             
+TURNER             30         30 SALES                                                                                                                                                                  
+TURNER             30         40 OPERATIONS                                                                                                                                                             
+ADAMS              20         20 RESEARCH                                                                                                                                                               
+ADAMS              20         30 SALES                                                                                                                                                                  
+ADAMS              20         40 OPERATIONS                                                                                                                                                             
+JAMES              30         30 SALES                                                                                                                                                                  
+JAMES              30         40 OPERATIONS                                                                                                                                                             
+FORD               20         20 RESEARCH                                                                                                                                                               
+FORD               20         30 SALES                                                                                                                                                                  
+FORD               20         40 OPERATIONS                                                                                                                                                             
+MILLER             10         10 ACCOUNTING                                                                                                                                                             
+MILLER             10         20 RESEARCH                                                                                                                                                               
+MILLER             10         30 SALES                                                                                                                                                                  
+MILLER             10         40 OPERATIONS                                                                                                                                                             
+
+39 rows selected.
+
+SQL> SELECT E.ENAME,E.DEPTNO,D.DEPTNO,D.DNAME
+  2  FROM EMP E JOIN DEPT D
+  3  ON E.DEPTNO >= D.DEPTNO;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                                                                                  
+---------- ---------- ---------- --------------                                                                                                                                                         
+SMITH              20         10 ACCOUNTING                                                                                                                                                             
+SMITH              20         20 RESEARCH                                                                                                                                                               
+ALLEN              30         10 ACCOUNTING                                                                                                                                                             
+ALLEN              30         20 RESEARCH                                                                                                                                                               
+ALLEN              30         30 SALES                                                                                                                                                                  
+WARD               30         10 ACCOUNTING                                                                                                                                                             
+WARD               30         20 RESEARCH                                                                                                                                                               
+WARD               30         30 SALES                                                                                                                                                                  
+JONES              20         10 ACCOUNTING                                                                                                                                                             
+JONES              20         20 RESEARCH                                                                                                                                                               
+MARTIN             30         10 ACCOUNTING                                                                                                                                                             
+MARTIN             30         20 RESEARCH                                                                                                                                                               
+MARTIN             30         30 SALES                                                                                                                                                                  
+BLAKE              30         10 ACCOUNTING                                                                                                                                                             
+BLAKE              30         20 RESEARCH                                                                                                                                                               
+BLAKE              30         30 SALES                                                                                                                                                                  
+CLARK              10         10 ACCOUNTING                                                                                                                                                             
+SCOTT              20         10 ACCOUNTING                                                                                                                                                             
+SCOTT              20         20 RESEARCH                                                                                                                                                               
+KING               10         10 ACCOUNTING                                                                                                                                                             
+TURNER             30         10 ACCOUNTING                                                                                                                                                             
+TURNER             30         20 RESEARCH                                                                                                                                                               
+TURNER             30         30 SALES                                                                                                                                                                  
+ADAMS              20         10 ACCOUNTING                                                                                                                                                             
+ADAMS              20         20 RESEARCH                                                                                                                                                               
+JAMES              30         10 ACCOUNTING                                                                                                                                                             
+JAMES              30         20 RESEARCH                                                                                                                                                               
+JAMES              30         30 SALES                                                                                                                                                                  
+FORD               20         10 ACCOUNTING                                                                                                                                                             
+FORD               20         20 RESEARCH                                                                                                                                                               
+MILLER             10         10 ACCOUNTING                                                                                                                                                             
+
+31 rows selected.
+
+SQL> CREATE TABLE STUDEMT(
+  2  SID NUMBER(10) PRIMARY KEY,
+  3  SNAME VARCHAR(20) NOT NULL,
+  4  MARKS NUMBER(4,2) NOT NULL,
+  5  CID NUMBER(10) REFERENCES COURSE(CID));
+
+Table created.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(101,'RAM',75,1);
+INSERT INTO STUDENT
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(101,'RAM',75,NULL);
+INSERT INTO STUDENT
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DESC STUDENT;
+ERROR:
+ORA-04043: object STUDENT does not exist 
+
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+A                              TABLE                                                                                                                                                                    
+B1                             TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+B                              TABLE                                                                                                                                                                    
+COURSE                         TABLE                                                                                                                                                                    
+STUDEMT                        TABLE                                                                                                                                                                    
+
+9 rows selected.
+
+SQL> SELECT * FROM STUDENT;
+SELECT * FROM STUDENT
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP TABLE STUDENT;
+DROP TABLE STUDENT
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL>  CREATE TABLE STUDEMT(
+  2   SID NUMBER(10) PRIMARY KEY,
+  3   SNAME VARCHAR(20) NOT NULL,
+  4   MARKS NUMBER(4,2) NOT NULL,
+  5   CID NUMBER(10) REFERENCES COURSE(CID));
+ CREATE TABLE STUDEMT(
+              *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> SELECT * FROM STUDENT;
+SELECT * FROM STUDENT
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP TABLE STUDEMT;
+
+Table dropped.
+
+SQL> CREATE TABLE STUDENT(
+  2   CREATE TABLE STUDEMT(
+  3   SID NUMBER(10) PRIMARY KEY,
+  4   SNAME VARCHAR(20) NOT NULL,
+  5   MARKS NUMBER(4,2) NOT NULL,
+  6  
+SQL> CREATE TABLE STUDENT(
+  2   SID NUMBER(10) PRIMARY KEY,
+  3   SNAME VARCHAR(20) NOT NULL,
+  4   MARKS NUMBER(4,2) NOT NULL,
+  5   CID NUMBER(10) REFERENCES COURSE(CID));
+
+Table created.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(101,'RAM',75,1);
+
+1 row created.
+
+SQL> SELECT T1.EMPNO,T2.MGR
+  2  FROM EMP T1,EMP T2
+  3  WHERE T1.EMPNO=T2.MGR;
+
+     EMPNO        MGR                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+      7902       7902                                                                                                                                                                                   
+      7698       7698                                                                                                                                                                                   
+      7698       7698                                                                                                                                                                                   
+      7839       7839                                                                                                                                                                                   
+      7698       7698                                                                                                                                                                                   
+      7839       7839                                                                                                                                                                                   
+      7839       7839                                                                                                                                                                                   
+      7566       7566                                                                                                                                                                                   
+      7698       7698                                                                                                                                                                                   
+      7788       7788                                                                                                                                                                                   
+      7698       7698                                                                                                                                                                                   
+      7566       7566                                                                                                                                                                                   
+      7782       7782                                                                                                                                                                                   
+
+13 rows selected.
+
+SQL> SELECT E1.ENAME,E1.SALARY,E1.SAL,E2.ENAME
+  2  FROM EMP E1,EMP E2
+  3  WHERE E1.MGR=E2.EMPNO AND E1.ENAME='SCOTT';
+SELECT E1.ENAME,E1.SALARY,E1.SAL,E2.ENAME
+                *
+ERROR at line 1:
+ORA-00904: "E1"."SALARY": invalid identifier 
+
+
+SQL>  SELECT E1.ENAME,E1.SAL,E1.JOB,E2.ENAME
+  2   FROM EMP E1,EMP E2
+  3   WHERE E1.MGR=E2.EMPNO AND E1.ENAME='SCOTT';
+
+ENAME             SAL JOB       ENAME                                                                                                                                                                   
+---------- ---------- --------- ----------                                                                                                                                                              
+SCOTT            3000 ANALYST   JONES                                                                                                                                                                   
+
+SQL> SELECT E1.ENAME,E1.SAL,E1.JOB,E2.ENAME
+  2  FROM EMP E1,EMP E2
+  3  WHERE E1.EMPNO =E2.MGR AND E1.ENAME='SCOTT';
+
+ENAME             SAL JOB       ENAME                                                                                                                                                                   
+---------- ---------- --------- ----------                                                                                                                                                              
+SCOTT            3000 ANALYST   ADAMS                                                                                                                                                                   
+
+SQL> SELECT E1.ENAME||' MANAGER IS '||E2.ENAME
+  2  FROM EMP E1,EMP E2
+  3  WHERE E1.MGR=E2.EMPNO;
+
+E1.ENAME||'MANAGERIS'||E2.ENAME                                                                                                                                                                         
+--------------------------------                                                                                                                                                                        
+SMITH MANAGER IS FORD                                                                                                                                                                                   
+ALLEN MANAGER IS BLAKE                                                                                                                                                                                  
+WARD MANAGER IS BLAKE                                                                                                                                                                                   
+JONES MANAGER IS KING                                                                                                                                                                                   
+MARTIN MANAGER IS BLAKE                                                                                                                                                                                 
+BLAKE MANAGER IS KING                                                                                                                                                                                   
+CLARK MANAGER IS KING                                                                                                                                                                                   
+SCOTT MANAGER IS JONES                                                                                                                                                                                  
+TURNER MANAGER IS BLAKE                                                                                                                                                                                 
+ADAMS MANAGER IS SCOTT                                                                                                                                                                                  
+JAMES MANAGER IS BLAKE                                                                                                                                                                                  
+FORD MANAGER IS JONES                                                                                                                                                                                   
+MILLER MANAGER IS CLARK                                                                                                                                                                                 
+
+13 rows selected.
+
+SQL> SPOOL OFF;
