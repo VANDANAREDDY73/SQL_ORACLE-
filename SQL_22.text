@@ -1,0 +1,172 @@
+SQL> SELECT EMP.ENAME,DEPT.DNAME
+  2  FROM EMP RIGHT JOIN DEPT
+  3  ON EMP.DEPTNO=DEPT.DEPTNO;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+CLARK      ACCOUNTING                                                                                                                                                                                   
+KING       ACCOUNTING                                                                                                                                                                                   
+MILLER     ACCOUNTING                                                                                                                                                                                   
+JONES      RESEARCH                                                                                                                                                                                     
+FORD       RESEARCH                                                                                                                                                                                     
+ADAMS      RESEARCH                                                                                                                                                                                     
+SMITH      RESEARCH                                                                                                                                                                                     
+SCOTT      RESEARCH                                                                                                                                                                                     
+WARD       SALES                                                                                                                                                                                        
+TURNER     SALES                                                                                                                                                                                        
+ALLEN      SALES                                                                                                                                                                                        
+JAMES      SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+MARTIN     SALES                                                                                                                                                                                        
+           OPERATIONS                                                                                                                                                                                   
+
+15 rows selected.
+
+SQL> SELECT EMP.ENAME,DEPT.DNAME FROM EMP LEFT JOIN DEPT
+  2  ON EMP.DEPTNO=DEPT.DEPTNO;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+SMITH      RESEARCH                                                                                                                                                                                     
+ALLEN      SALES                                                                                                                                                                                        
+WARD       SALES                                                                                                                                                                                        
+JONES      RESEARCH                                                                                                                                                                                     
+MARTIN     SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+CLARK      ACCOUNTING                                                                                                                                                                                   
+SCOTT      RESEARCH                                                                                                                                                                                     
+KING       ACCOUNTING                                                                                                                                                                                   
+TURNER     SALES                                                                                                                                                                                        
+ADAMS      RESEARCH                                                                                                                                                                                     
+JAMES      SALES                                                                                                                                                                                        
+FORD       RESEARCH                                                                                                                                                                                     
+MILLER     ACCOUNTING                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(102,'RAVI',80.2,2);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(103,'GAGAN',75,3);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(104,'MAHESH',77,NULL);
+
+1 row created.
+
+SQL> SELECT * FROM STUDENT;
+
+       SID SNAME                     MARKS        CID                                                                                                                                                   
+---------- -------------------- ---------- ----------                                                                                                                                                   
+       102 RAVI                       80.2          2                                                                                                                                                   
+       103 GAGAN                        75          3                                                                                                                                                   
+       104 MAHESH                       77                                                                                                                                                              
+
+SQL> INSERT INTO STUDENT
+  2  VALUES(101,'RAM',70,1);
+
+1 row created.
+
+SQL> SELECT * FROM STUDENT;
+
+       SID SNAME                     MARKS        CID                                                                                                                                                   
+---------- -------------------- ---------- ----------                                                                                                                                                   
+       102 RAVI                       80.2          2                                                                                                                                                   
+       103 GAGAN                        75          3                                                                                                                                                   
+       104 MAHESH                       77                                                                                                                                                              
+       101 RAM                          70          1                                                                                                                                                   
+
+SQL> SELECT * FROM COURSE;
+
+       CID CNAME                TNAME                                                                                                                                                                   
+---------- -------------------- --------------------                                                                                                                                                    
+         1 SQL                  X                                                                                                                                                                       
+         2 JAVA                 Y                                                                                                                                                                       
+         3 CSS                  Z                                                                                                                                                                       
+         4 HTML                 A                                                                                                                                                                       
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT C.CNAME,C.CID,S.CID,S.SNAME
+  2  FROM COURSE C LEFT JOIN STUDENT S
+  3  ON C.CID=S.CID;
+
+CNAME                       CID        CID SNAME                                                                                                                                                        
+-------------------- ---------- ---------- --------------------                                                                                                                                         
+JAVA                          2          2 RAVI                                                                                                                                                         
+CSS                           3          3 GAGAN                                                                                                                                                        
+SQL                           1          1 RAM                                                                                                                                                          
+HTML                          4                                                                                                                                                                         
+
+SQL> SELECT E.ENAME,E.DEPTNO,D.DEPTNO,D.DNAME
+  2  FROM EMP E LEFT JOIN DEPT D
+  3  ON EMP.DEPTNO = DEPT.DEPTNO;
+ON EMP.DEPTNO = DEPT.DEPTNO
+                *
+ERROR at line 3:
+ORA-00904: "DEPT"."DEPTNO": invalid identifier 
+
+
+SQL> SELECT E.ENAME,E.DEPTNO,D.DEPTNO,D.DNAME
+  2  FROM EMP E LEFT JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                                                                                  
+---------- ---------- ---------- --------------                                                                                                                                                         
+SMITH              20         20 RESEARCH                                                                                                                                                               
+ALLEN              30         30 SALES                                                                                                                                                                  
+WARD               30         30 SALES                                                                                                                                                                  
+JONES              20         20 RESEARCH                                                                                                                                                               
+MARTIN             30         30 SALES                                                                                                                                                                  
+BLAKE              30         30 SALES                                                                                                                                                                  
+CLARK              10         10 ACCOUNTING                                                                                                                                                             
+SCOTT              20         20 RESEARCH                                                                                                                                                               
+KING               10         10 ACCOUNTING                                                                                                                                                             
+TURNER             30         30 SALES                                                                                                                                                                  
+ADAMS              20         20 RESEARCH                                                                                                                                                               
+JAMES              30         30 SALES                                                                                                                                                                  
+FORD               20         20 RESEARCH                                                                                                                                                               
+MILLER             10         10 ACCOUNTING                                                                                                                                                             
+
+14 rows selected.
+
+SQL> SELECT S.* ,C.*
+  2  FROM STUDENT S RIGHT JOIN COURSE C
+  3  ON S.CID = C.CID;
+
+       SID SNAME                     MARKS        CID        CID CNAME                TNAME                                                                                                             
+---------- -------------------- ---------- ---------- ---------- -------------------- --------------------                                                                                              
+       102 RAVI                       80.2          2          2 JAVA                 Y                                                                                                                 
+       103 GAGAN                        75          3          3 CSS                  Z                                                                                                                 
+       101 RAM                          70          1          1 SQL                  X                                                                                                                 
+                                                               4 HTML                 A                                                                                                                 
+
+SQL> SPOOL OFF;
